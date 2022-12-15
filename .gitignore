@@ -3,3 +3,5 @@
 */*/debug
 
 **/*.rs.bk
+
+*/*/__pycache__
