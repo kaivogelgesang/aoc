@@ -1,4 +1,4 @@
-use std::{io, collections::HashSet};
+use std::{collections::HashSet, io};
 
 fn main() {
     let input = io::stdin().lines().next().unwrap().unwrap();

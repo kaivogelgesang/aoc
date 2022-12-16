@@ -4,9 +4,10 @@ use solution::*;
 
 fn main() {
     let row: i64 = args()
-    .nth(1).ok_or(())
-    .map(|s| s.parse().expect("bad arg"))
-    .expect("no arg");
+        .nth(1)
+        .ok_or(())
+        .map(|s| s.parse().expect("bad arg"))
+        .expect("no arg");
 
     let mut visited = HashSet::new();
 

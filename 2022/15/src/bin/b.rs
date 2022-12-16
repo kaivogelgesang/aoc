@@ -5,7 +5,7 @@ use solution::*;
 #[derive(PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Debug)]
 enum Marker {
     Start,
-    End
+    End,
 }
 
 fn main() {
@@ -13,7 +13,7 @@ fn main() {
 
     let size: usize = args().nth(1).expect("bad arg").parse().expect("bad number");
     let mut ranges = vec![Vec::new(); size + 1];
-    
+
     for (row, range) in ranges.iter_mut().enumerate() {
         for (s, b) in input.iter() {
             let (x0, y0) = s;
@@ -23,7 +23,7 @@ fn main() {
             let dh = (y0 - row as i64).abs();
             let l = x0 - dist + dh;
             let r = x0 + dist - dh;
-            
+
             if l <= r {
                 range.push((l, Marker::Start));
                 range.push((r + 1, Marker::End));
@@ -45,7 +45,7 @@ fn main() {
 
         for &(x, marker) in range.iter() {
             if x > size as i64 {
-                break
+                break;
             }
             match marker {
                 Marker::Start => current += 1,
@@ -57,7 +57,7 @@ fn main() {
             }
         }
 
-        // todo check x = size
+        // check x = size
         let &(end, _) = range.last().unwrap();
         if end < size as i64 {
             println!("sus {y} {end}..={size}");

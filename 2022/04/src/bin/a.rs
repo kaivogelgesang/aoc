@@ -15,12 +15,15 @@ fn main() {
         let (a, b) = match line
             .split(&[',', '-'])
             .map(|c| c.trim().parse::<u64>())
-            .collect::<Result<Vec<_>,_>>()
-            .expect("bad input")[..] {
-                [a1, a2, b1, b2] => ((a1, a2), (b1, b2)),
-                _ => unreachable!()
-            };
-            if contained(a, b) || contained(b, a) { count += 1 }
+            .collect::<Result<Vec<_>, _>>()
+            .expect("bad input")[..]
+        {
+            [a1, a2, b1, b2] => ((a1, a2), (b1, b2)),
+            _ => unreachable!(),
+        };
+        if contained(a, b) || contained(b, a) {
+            count += 1
+        }
     }
 
     println!("{}", count);

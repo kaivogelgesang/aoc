@@ -10,7 +10,7 @@ fn check_line<I: Iterator<Item = (usize, usize)>>(
         let current_height = trees[y][x] as usize;
 
         score[y][x] *= dp[current_height];
-        
+
         for (height, entry) in dp.iter_mut().enumerate() {
             *entry = if height > current_height {
                 *entry + 1
