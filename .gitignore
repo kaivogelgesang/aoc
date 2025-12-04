@@ -5,3 +5,6 @@
 **/*.rs.bk
 
 */*/__pycache__
+
+*.out
+*.bak
